@@ -35,7 +35,7 @@ class EnderecosSalvosRepository {
 
   Future<void> atualizar(EnderecoModel enderecoModel) async {
     try {
-      var response = await _customDio.dio.put(
+      await _customDio.dio.put(
           "/enderecos/${enderecoModel.objectId}",
           data: enderecoModel.toJsonEndpoint());
     } catch (e) {
@@ -45,7 +45,7 @@ class EnderecosSalvosRepository {
 
   Future<void> remover(String objectId) async {
     try {
-      var response = await _customDio.dio.delete(
+      await _customDio.dio.delete(
         "/enderecos/$objectId",
       );
     } catch (e) {
